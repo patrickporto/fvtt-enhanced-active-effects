@@ -1,6 +1,6 @@
 {
-  "name": "module",
-  "title": "New Module",
+  "name": "enhancedactiveeffects",
+  "title": "Enhanced Active Effects",
   "description": "",
   "version": "This is auto replaced",
   "library": "false",
@@ -9,11 +9,12 @@
   "compatibleCoreVersion": "0.8.8",
   "authors": [
     {
-      "name": "The League of Extraordinary FVTT Developers",
-      "url": "https://github.com/League-of-Foundry-Developers",
-      "discord": "discordID#0001"
+      "name": "Patrick Porto",
+      "url": "https://github.com/patrickporto",
+      "discord": "patrickporto#9260"
     }
   ],
+  "system" : ["demonlord"],
   "dependencies": [
 
   ],
@@ -22,9 +23,6 @@
   ],
   "esmodules": [
     "/scripts/module.js"
-  ],
-  "scripts": [
-    "/scripts/lib/lib.js"
   ],
   "styles": [
     "/styles/module.css"
