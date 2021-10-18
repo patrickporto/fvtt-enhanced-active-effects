@@ -52,6 +52,11 @@ export class Macro {
   }
 
   async _executeItemMacro(change) {
+    if (!this.item.hasMacro()) {
+      ui.notifications.warn(`No macro found in ${this.item.name}`)
+      console.error(`Execute Item Macro | No macro found in ${this.item.name}`);
+      return
+    }
     const context = this.getMacroContext()
     return this.item.executeMacro(context)
   }
