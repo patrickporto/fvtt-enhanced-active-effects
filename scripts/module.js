@@ -16,6 +16,10 @@ Hooks.on('deleteActiveEffect', async activeEffect => {
     const {ItemMacro} = await import("./item-macro.js")
     const itemMacro = new ItemMacro({ actor: _parent })
     itemMacro.off(activeEffect.data)
+
+    const {TokenMagicAE} = await import("./token-magic.js")
+    const tokenMagic = new TokenMagicAE({ actor: _parent })
+    tokenMagic.off(activeEffect.data)
   }
 })
 
@@ -30,5 +34,9 @@ Hooks.on('preCreateActiveEffect', async (activeEffect) => {
     const {ItemMacro} = await import("./item-macro.js")
     const itemMacro = new ItemMacro({ actor: _parent })
     itemMacro.on(activeEffect.data)
+
+    const {TokenMagicAE} = await import("./token-magic.js")
+    const tokenMagic = new TokenMagicAE({ actor: _parent })
+    tokenMagic.on(activeEffect.data)
   }
 })

@@ -2,5 +2,6 @@
     "ENHANCEDACTIVEEFFECTS.Macro": "Macro",
     "ENHANCEDACTIVEEFFECTS.ItemMacro": "Item Macro",
     "ENHANCEDACTIVEEFFECTS.ExecuteOnApply": "Execute on apply active effect",
-    "ENHANCEDACTIVEEFFECTS.ExecuteOnRemove": "Execute on remove active effect"
+    "ENHANCEDACTIVEEFFECTS.ExecuteOnRemove": "Execute on remove active effect",
+    "ENHANCEDACTIVEEFFECTS.TokenMagic": "Apply the Token Magic effect"
 }
