@@ -5,8 +5,10 @@ export const ITEMMACRO_ON_REMOVE = 'data.enhancedactiveeffects.itemMacroOnRemove
 
 
 export const changeKeys = {
-    [MACRO_ON_APPLY]: game.i18n.localize('ENHANCEDACTIVEEFFECTS.Macro') + ' - ' + game.i18n.localize('ENHANCEDACTIVEEFFECTS.ExecuteOnApply'),
-    [MACRO_ON_REMOVE]: game.i18n.localize('ENHANCEDACTIVEEFFECTS.Macro') + ' - ' + game.i18n.localize('ENHANCEDACTIVEEFFECTS.ExecuteOnRemove'),
+  [MACRO_ON_APPLY]: game.i18n.localize('ENHANCEDACTIVEEFFECTS.Macro') + ' - ' + game.i18n.localize('ENHANCEDACTIVEEFFECTS.ExecuteOnApply'),
+  [MACRO_ON_REMOVE]: game.i18n.localize('ENHANCEDACTIVEEFFECTS.Macro') + ' - ' + game.i18n.localize('ENHANCEDACTIVEEFFECTS.ExecuteOnRemove'),
+  ...(game.modules.get("itemacro").active ? {
     [ITEMMACRO_ON_APPLY]: game.i18n.localize('ENHANCEDACTIVEEFFECTS.ItemMacro') + ' - ' + game.i18n.localize('ENHANCEDACTIVEEFFECTS.ExecuteOnApply'),
     [ITEMMACRO_ON_REMOVE]: game.i18n.localize('ENHANCEDACTIVEEFFECTS.ItemMacro') + ' - ' + game.i18n.localize('ENHANCEDACTIVEEFFECTS.ExecuteOnRemove'),
+  } : {})
 }
