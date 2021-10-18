@@ -9,19 +9,26 @@ Hooks.once('ready', async () => {
 Hooks.on('deleteActiveEffect', async activeEffect => {
   const _parent = activeEffect?.parent
   if (_parent) {
-    const item = await fromUuid(activeEffect.data.origin)
-    const {Macro} = await import("./macro.js")
-    const macro = new Macro({ actor: _parent, item })
-    macro.off(activeEffect.data)
+    const {CoreMacro} = await import("./core-macro.js")
+    const coreMacro = new CoreMacro({ actor: _parent })
+    coreMacro.off(activeEffect.data)
+
+    const {ItemMacro} = await import("./item-macro.js")
+    const itemMacro = new ItemMacro({ actor: _parent })
+    itemMacro.off(activeEffect.data)
   }
 })
 
-Hooks.on('preCreateActiveEffect', async (activeEffect, ...rest) => {
+Hooks.on('preCreateActiveEffect', async (activeEffect) => {
   const _parent = activeEffect?.parent
   if (_parent) {
     const item = await fromUuid(activeEffect.data.origin)
-    const {Macro} = await import("./macro.js")
-    const macro = new Macro({ actor: _parent, item })
-    macro.on(activeEffect.data)
+    const {CoreMacro} = await import("./core-macro.js")
+    const coreMacro = new CoreMacro({ actor: _parent })
+    coreMacro.on(activeEffect.data)
+
+    const {ItemMacro} = await import("./item-macro.js")
+    const itemMacro = new ItemMacro({ actor: _parent })
+    itemMacro.on(activeEffect.data)
   }
 })
