@@ -8,11 +8,11 @@ export const TOKENMAGIC = 'data.enhancedactiveeffects.tokenmagic'
 export const changeKeys = {
   [MACRO_ON_APPLY]: game.i18n.localize('ENHANCEDACTIVEEFFECTS.Macro') + ' - ' + game.i18n.localize('ENHANCEDACTIVEEFFECTS.ExecuteOnApply'),
   [MACRO_ON_REMOVE]: game.i18n.localize('ENHANCEDACTIVEEFFECTS.Macro') + ' - ' + game.i18n.localize('ENHANCEDACTIVEEFFECTS.ExecuteOnRemove'),
-  ...(game.modules.get("itemacro").active ? {
+  ...(game.modules.get("itemacro")?.active ? {
     [ITEMMACRO_ON_APPLY]: game.i18n.localize('ENHANCEDACTIVEEFFECTS.ItemMacro') + ' - ' + game.i18n.localize('ENHANCEDACTIVEEFFECTS.ExecuteOnApply'),
     [ITEMMACRO_ON_REMOVE]: game.i18n.localize('ENHANCEDACTIVEEFFECTS.ItemMacro') + ' - ' + game.i18n.localize('ENHANCEDACTIVEEFFECTS.ExecuteOnRemove'),
   } : {}),
-  ...(game.modules.get("tokenmagic").active ? {
+  ...(game.modules.get("tokenmagic")?.active ? {
     [TOKENMAGIC]: game.i18n.localize('ENHANCEDACTIVEEFFECTS.TokenMagic'),
   } : {})
 }
