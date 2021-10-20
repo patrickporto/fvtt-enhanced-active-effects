@@ -2,8 +2,13 @@ Hooks.once('init', async () => {
 });
 
 Hooks.once('ready', async () => {
-  const {ActiveEffectConfig} = await import(`./systems/${game.system.id}.js`)
-  CONFIG.ActiveEffect.sheetClass = ActiveEffectConfig
+  try {
+    console.error(`${MODULE_NAME} | Loading custom sheet for ${game.system.id}`)
+    const {ActiveEffectConfig} = await import(`./systems/${game.system.id}.js`)
+    CONFIG.ActiveEffect.sheetClass = ActiveEffectConfig
+  } catch (e) {
+    console.error(`${MODULE_NAME} | custom sheet does not exist for ${game.system.id}`)
+  }
 });
 
 Hooks.on('deleteActiveEffect', async activeEffect => {

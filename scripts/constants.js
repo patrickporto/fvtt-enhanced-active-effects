@@ -1,3 +1,5 @@
+export const MODULE_NAME = 'Enhanced Active Effects'
+
 export const MACRO_ON_APPLY = 'data.enhancedactiveeffects.macroOnApply'
 export const MACRO_ON_REMOVE = 'data.enhancedactiveeffects.macroOnRemove'
 export const ITEMMACRO_ON_APPLY = 'data.enhancedactiveeffects.itemMacroOnApply'
