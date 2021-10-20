@@ -1,10 +1,7 @@
-import {MACRO_ON_APPLY, MACRO_ON_REMOVE} from "./constants.js";
+import {MACRO_ON_APPLY, MACRO_ON_REMOVE} from "../constants.js";
+import BasePlugin from "../base-plugin.js";
 
-export class CoreMacro {
-  constructor({actor}) {
-    this.actor = actor;
-  }
-
+class CoreMacro extends BasePlugin {
   getMacroContext() {
     return mergeObject({
       token: ChatMessage.getSpeaker({ actor: this.actor }).token,
@@ -40,3 +37,5 @@ export class CoreMacro {
     }
   }
 }
+
+export default CoreMacro

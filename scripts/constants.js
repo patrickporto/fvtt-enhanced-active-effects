@@ -7,7 +7,7 @@ export const ITEMMACRO_ON_REMOVE = 'data.enhancedactiveeffects.itemMacroOnRemove
 export const TOKENMAGIC = 'data.enhancedactiveeffects.tokenmagic'
 
 
-export const changeKeys = {
+export const getChangeKeys = () => ({
   [MACRO_ON_APPLY]: game.i18n.localize('ENHANCEDACTIVEEFFECTS.Macro') + ' - ' + game.i18n.localize('ENHANCEDACTIVEEFFECTS.ExecuteOnApply'),
   [MACRO_ON_REMOVE]: game.i18n.localize('ENHANCEDACTIVEEFFECTS.Macro') + ' - ' + game.i18n.localize('ENHANCEDACTIVEEFFECTS.ExecuteOnRemove'),
   ...(game.modules.get("itemacro")?.active ? {
@@ -17,4 +17,4 @@ export const changeKeys = {
   ...(game.modules.get("tokenmagic")?.active ? {
     [TOKENMAGIC]: game.i18n.localize('ENHANCEDACTIVEEFFECTS.TokenMagic'),
   } : {})
-}
+})

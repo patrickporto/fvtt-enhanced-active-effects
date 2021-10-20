@@ -1,4 +1,4 @@
-import {changeKeys} from "../constants.js";
+import {getChangeKeys} from "../constants.js";
 
 const DLActiveEffectConfig = CONFIG.ActiveEffect.sheetClass
 
@@ -15,7 +15,7 @@ export class ActiveEffectConfig extends DLActiveEffectConfig {
         return foundry.utils.mergeObject(data, {
             availableChangeKeys: {
                 ...availableChangeKeys,
-                ...changeKeys,
+                ...getChangeKeys(),
             }
         })
     }
@@ -29,7 +29,7 @@ export class ActiveEffectConfig extends DLActiveEffectConfig {
     _refreshChangeOptions({target}) {
         const effectChange = $(target).closest('.effect-change')
         const key = $(target).val()
-        if (Object.keys(changeKeys).includes(key)) {
+        if (Object.keys(getChangeKeys()).includes(key)) {
             effectChange.find(".mode select").val(0).prop('disabled', true);
         } else {
             effectChange.find(".mode select").show().prop('disabled', false);

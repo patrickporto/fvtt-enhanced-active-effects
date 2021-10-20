@@ -1,8 +1,14 @@
-import {ITEMMACRO_ON_APPLY, ITEMMACRO_ON_REMOVE} from "./constants.js";
+import {
+  ITEMMACRO_ON_APPLY,
+  ITEMMACRO_ON_REMOVE,
+  MODULE_NAME
+} from "../constants.js";
+import BasePlugin from "../base-plugin.js";
 
-export class ItemMacro {
-  constructor({actor}) {
-    this.actor = actor;
+class ItemMacro extends BasePlugin {
+  get active() {
+    console.warn(`${MODULE_NAME} | Item Macro is deactivated`)
+    return game.modules.get("itemacro")?.active
   }
 
   getMacroContext() {
@@ -41,3 +47,5 @@ export class ItemMacro {
     }
   }
 }
+
+export default ItemMacro

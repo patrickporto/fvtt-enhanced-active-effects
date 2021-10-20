@@ -1,9 +1,10 @@
-import {TOKENMAGIC} from "./constants.js";
+import {MODULE_NAME, TOKENMAGIC} from "../constants.js";
+import BasePlugin from "../base-plugin.js";
 
-export class TokenMagicAE {
-  constructor({actor}) {
-    this.actor = actor;
-    this.token = actor.isToken ? actor.token.object : actor.getActiveTokens()[0]
+export class TokenMagicAE extends BasePlugin {
+  get active() {
+    console.warn(`${MODULE_NAME} | Token Magic is deactivated`)
+    return game.modules.get("tokenmagic")?.active
   }
 
   async on(effectData) {
@@ -27,3 +28,5 @@ export class TokenMagicAE {
     }
   }
 }
+
+export default TokenMagicAE
