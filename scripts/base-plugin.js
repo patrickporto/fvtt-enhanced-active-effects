@@ -1,7 +1,17 @@
 class BasePlugin {
   constructor({actor}) {
     this.actor = actor;
-    this.token = actor.isToken ? actor.token.object : actor.getActiveTokens()[0]
+  }
+
+  get token() {
+    if (this.actor.isToken) {
+      return this.actor.token.object
+    }
+    const tokens = this.actor.getActiveTokens()
+    if (tokens.length > 0) {
+      return tokens[0]
+    }
+    return null
   }
 
   get active() {
