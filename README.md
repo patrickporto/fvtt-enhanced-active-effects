@@ -17,8 +17,8 @@ The following reference table can be used in anything system with active effects
 |----|:----:|:----:|----|
 |data.enhancedactiveeffects.macroOnApply|Custom|\<Macro Name>|Execute a macro on apply active effect
 |data.enhancedactiveeffects.macroOnRemove|Custom|\<Macro Name>|Execute a macro on remove active effect
-|data.enhancedactiveeffects.itemMacroOnApply|Custom|-|Execute a item macro on apply active effect
-|data.enhancedactiveeffects.itemMacroOnRemove|Custom|-|Execute a item macro on remove active effect
+|data.enhancedactiveeffects.itemMacroOnApply|Custom|\<Macro Argument>|Execute a item macro on apply active effect
+|data.enhancedactiveeffects.itemMacroOnRemove|Custom|\<Macro Argument>|Execute a item macro on remove active effect
 |data.enhancedactiveeffects.tokenmagic|Custom|\<Preset Name>|Apply Token Magic special effect 
 
 

@@ -11,10 +11,13 @@ class ItemMacro extends BasePlugin {
     return game.modules.get("itemacro")?.active
   }
 
-  getMacroContext() {
+  getMacroContext(context) {
+    const speaker = ChatMessage.getSpeaker({ actor: this.actor })
     return mergeObject({
-      token: ChatMessage.getSpeaker({ actor: this.actor }).token,
-      actor: this.actor.id,
+      token: canvas.tokens.get(speaker.token),
+      actor: this.actor,
+      speaker,
+      ...context
     }, {}, { overwrite: false });
   }
 
@@ -23,7 +26,7 @@ class ItemMacro extends BasePlugin {
     if (changes.length === 0 ) {
       return
     }
-    return this._executeMacro(changes, effectData)
+    return this._executeMacro(changes, effectData, { action: "on" })
   }
 
   async off(effectData) {
@@ -31,10 +34,10 @@ class ItemMacro extends BasePlugin {
     if (changes.length === 0 ) {
       return
     }
-    return this._executeMacro(changes, effectData)
+    return this._executeMacro(changes, effectData, { action: "off" })
   }
 
-  async _executeMacro(changes, effectData) {
+  async _executeMacro(changes, effectData, context = {}) {
     const item = await fromUuid(effectData.origin)
     for (const change of changes) {
       if (!item.hasMacro()) {
@@ -42,8 +45,7 @@ class ItemMacro extends BasePlugin {
         console.error(`Execute Item Macro | No macro found in ${item.name}`);
         continue
       }
-      const context = this.getMacroContext()
-      return item.executeMacro(context)
+      return item.executeMacro(this.getMacroContext({item, ...context}), change.value)
     }
   }
 }
