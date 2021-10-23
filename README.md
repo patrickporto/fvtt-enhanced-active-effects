@@ -25,7 +25,7 @@ The following reference table can be used in anything system with active effects
 
 ## Installation
 
-From the Foundry VTT setup screen, go to "Add-on Modules", and search for "Compendium Explorer".  
+From the Foundry VTT setup screen, go to "Add-on Modules", and search for "Enhanced Active Effects".  
 Alternatively, you can install using the manifest path
 
 ```
